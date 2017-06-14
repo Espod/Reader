@@ -1,4 +1,4 @@
-package com.espod.com;
+package com.espod;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

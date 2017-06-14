@@ -1,4 +1,4 @@
-package com.espod.com;
+package com.espod;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
