@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/book")
 public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/books/bookName", method = RequestMethod.GET)
+    @RequestMapping(value = "/{bookName}", method = RequestMethod.GET)
     public List<Book> findByBookName(@RequestParam(value = "bookName") String bookName) {
         return bookService.findByBookName(bookName);
     }
 
-    @RequestMapping(value = "/books/bookType", method = RequestMethod.GET)
+    @RequestMapping(value = "/bookType", method = RequestMethod.GET)
     public List<Book> findByBookType(@RequestParam(value = "bookType") String bookType) {
         return bookService.findByBookType(bookType);
     }
 
-    @RequestMapping(value = "/books/author", method = RequestMethod.GET)
+    @RequestMapping(value = "/author", method = RequestMethod.GET)
     public List<Book> findByAuthor(@RequestParam(value = "author") String author) {
         return bookService.findByAuthor(author);
     }
 
-    @RequestMapping(value = "/books/publisher", method = RequestMethod.GET)
+    @RequestMapping(value = "/publisher", method = RequestMethod.GET)
     public List<Book> findByPublisher(@RequestParam(value = "publisher") String publisher) {
         return bookService.findByPublisher(publisher);
     }

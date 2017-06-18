@@ -22,6 +22,8 @@ public class Borrowed {
         this.date = date;
     }
 
+    public Borrowed() {}
+
     public Integer getId() {
         return id;
     }
