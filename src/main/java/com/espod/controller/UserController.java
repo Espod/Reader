@@ -1,5 +1,6 @@
 package com.espod.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.espod.entity.User;
 import com.espod.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public User findByUserID(@RequestParam(value = "userID") String userID) {
-        return userService.findByUserID(userID);
+    public Object findByUserID(@RequestParam(value = "userID") String userID) {
+        User user = userService.findByUserID(userID);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("userID", user.getUserID());
+        jsonObject.put("name", user.getName());
+        jsonObject.put("phone", user.getPhone());
+        return jsonObject;
     }
 }
