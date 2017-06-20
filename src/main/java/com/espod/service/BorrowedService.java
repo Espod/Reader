@@ -12,11 +12,19 @@ public class BorrowedService {
     @Autowired
     private BorrowedRepository borrowedRepository;
 
-    public void saveBorrowed(Borrowed borrowed){
+    public void saveBorrowed(Borrowed borrowed) {
         borrowedRepository.save(borrowed);
     }
 
-    public List<Borrowed> findByUserID(String userID){
+    public List<Borrowed> findByUserID(String userID) {
         return borrowedRepository.findByUserID(userID);
+    }
+
+    public Borrowed findByUserIDAndIsbn(String userID, String isbn) {
+        return borrowedRepository.findByUserIDAndIsbn(userID, isbn);
+    }
+
+    public void deleteBorrowed(Borrowed borrowed){
+        borrowedRepository.delete(borrowed);
     }
 }

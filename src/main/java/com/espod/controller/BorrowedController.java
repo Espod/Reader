@@ -38,4 +38,21 @@ public class BorrowedController {
     public List<Borrowed> findByUserID(@RequestParam(value = "userID") String userID) {
         return borrowedService.findByUserID(userID);
     }
+
+    @RequestMapping(value = "/giveBack", method = RequestMethod.GET)
+    public Object giveBack(@RequestParam(value = "userID") String userID,
+                         @RequestParam(value = "isbn") String isbn) {
+        Borrowed borrowed = borrowedService.findByUserIDAndIsbn(userID, isbn);
+        JSONObject jsonObject = new JSONObject();
+        if(borrowed == null){
+            jsonObject.put("msg", "你没有借阅这本书");
+        }else {
+            Book book = bookService.findByIsbn(borrowed.getIsbn());
+            book.setNumber(book.getNumber()+1);
+            bookService.save(book);
+            borrowedService.deleteBorrowed(borrowed);
+            jsonObject.put("msg", "图书归还成功");
+        }
+        return jsonObject;
+    }
 }

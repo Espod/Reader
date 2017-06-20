@@ -11,7 +11,7 @@ public class Borrowed {
 
     @Id
     //设置为自动增长策略
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String userID;

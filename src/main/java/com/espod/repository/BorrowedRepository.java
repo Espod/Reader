@@ -12,4 +12,8 @@ public interface BorrowedRepository extends JpaRepository<Borrowed, String> {
     Borrowed save(Borrowed borrowed);
 
     List<Borrowed> findByUserID(String userID);
+
+    Borrowed findByUserIDAndIsbn(String userID, String isbn);
+
+    void delete(Borrowed borrowed);
 }
