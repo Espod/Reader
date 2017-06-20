@@ -18,12 +18,12 @@ public class AuthenticationController {
 
     @PostMapping("")
     public Object authentication(@RequestBody User user) {
-        User userInDataBase = userService.findByName(user.getName());
+        User userInDataBase = userService.findByUserID(user.getUserID());
         JSONObject jsonObject = new JSONObject();
         if (userInDataBase == null) {
-            jsonObject.put("error", "用户不存在");
+            jsonObject.put("msg", "用户不存在");
         } else if (!userService.comparePassword(user, userInDataBase)) {
-            jsonObject.put("error", "密码不正确");
+            jsonObject.put("msg", "密码不正确");
         } else {
             String token = authenticationService.getToken(userInDataBase);
             jsonObject.put("token", token);

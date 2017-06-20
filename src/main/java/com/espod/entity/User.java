@@ -15,12 +15,14 @@ public class User {
 
     private String phone;
 
-    /*public User(String userID, String password, String name, String phone) {
+    public User(String userID, String password, String name, String phone) {
         this.userID = userID;
         this.password = password;
         this.name = name;
         this.phone = phone;
-    }*/
+    }
+
+    public User() {    }
 
     public String getUserID() {
         return userID;

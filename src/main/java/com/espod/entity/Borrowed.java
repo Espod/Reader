@@ -1,6 +1,8 @@
 package com.espod.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -8,21 +10,24 @@ import java.util.Date;
 public class Borrowed {
 
     @Id
+    //设置为自动增长策略
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String userID;
 
     private String isbn;
 
-    private Date date;
+    private Date borrowedDate;
 
-    public Borrowed(String userID, String isbn, Date date) {
+    public Borrowed(String userID, String isbn, Date brrowedDate) {
         this.userID = userID;
         this.isbn = isbn;
-        this.date = date;
+        this.borrowedDate = brrowedDate;
     }
 
-    public Borrowed() {}
+    public Borrowed() {
+    }
 
     public Integer getId() {
         return id;
@@ -48,11 +53,11 @@ public class Borrowed {
         this.isbn = isbn;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getBorrowedDate() {
+        return borrowedDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setBorrowedDate(Date borrowedDate) {
+        this.borrowedDate = borrowedDate;
     }
 }

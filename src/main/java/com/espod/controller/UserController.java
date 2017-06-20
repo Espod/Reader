@@ -14,8 +14,16 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+    public Object saveUser(@RequestBody User user) {
+        User userInDataBase = userService.findByUserID(user.getUserID());
+        JSONObject jsonObject = new JSONObject();
+        if (userInDataBase == null) {
+            userService.saveUser(user);
+            jsonObject.put("msg", "用户注册成功");
+        } else {
+            jsonObject.put("msg", "用户已存在");
+        }
+        return jsonObject;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

@@ -28,4 +28,11 @@ public class BookService {
         return bookRepository.findByPublisher(publisher);
     }
 
+    public Book findByIsbn(String isbn){
+        return bookRepository.findByIsbn(isbn);
+    }
+
+    public void save(Book book){
+        bookRepository.save(book);
+    }
 }

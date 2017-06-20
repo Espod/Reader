@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BorrowedRepository extends JpaRepository<Borrowed, Integer> {
+public interface BorrowedRepository extends JpaRepository<Borrowed, String> {
     Borrowed save(Borrowed borrowed);
 
     List<Borrowed> findByUserID(String userID);

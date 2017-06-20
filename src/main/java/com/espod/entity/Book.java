@@ -21,6 +21,18 @@ public class Book {
 
     private Integer number;
 
+    public Book(String isbn, String bookName, String author, String publisher, String bookType, String storeLocation, Integer number) {
+        this.isbn = isbn;
+        this.bookName = bookName;
+        this.author = author;
+        this.publisher = publisher;
+        this.bookType = bookType;
+        this.storeLocation = storeLocation;
+        this.number = number;
+    }
+
+    public Book() {    }
+
     public String getIsbn() {
         return isbn;
     }
